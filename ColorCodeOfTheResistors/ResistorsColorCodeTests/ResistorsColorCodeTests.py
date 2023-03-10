@@ -3,13 +3,24 @@ from ColorCodeOfTheResistors.ResistorsColor.ResistorsColorCode import Resistor
 
 def test_resistance():
     r1 = Resistor("brown", "black", "red")
-    assert r1.get_resistance() == 'resistance: 1.000 Kohms'
+    assert r1.get_resistance() == 'resistance: 1000 ohms'
 
     r2 = Resistor("yellow", "violet", "brown")
-    assert r2.get_resistance() == "resistance: 470.000 ohms"
+    assert r2.get_resistance() == "resistance: 470 ohms"
 
     r3 = Resistor("orange", "orange", "orange", "gold")
-    assert r3.get_resistance() == "resistance: 33.000 Kohms"
+    assert r3.get_resistance() == "resistance: 33000 ohms"
+
+
+def test_tolerance():
+    r1 = Resistor("red", "red", "orange", "gold")
+    assert r1.get_tolerance() == "tolerance: 5%"
+
+    r2 = Resistor("yellow", "violet", "brown")
+    assert r2.get_tolerance() is None
+
+    r3 = Resistor("orange", "orange", "orange", "gold")
+    assert r3.get_tolerance() == "tolerance: 5%"
 
 
 def test_band_colors():

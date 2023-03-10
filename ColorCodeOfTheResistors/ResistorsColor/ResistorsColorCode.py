@@ -41,12 +41,21 @@ class Resistor:
         """
         value = (self.color_codes[self.band1] * 10 + self.color_codes[self.band2]) * (
                     10 ** self.color_codes[self.band3])
-        units = ["ohms", "Kohms", "Mohms", "Gohms"]
-        i = 0
-        while value >= 1000 and i < len(units) - 1:
-            value /= 1000
-            i += 1
-        return f"resistance: {value:.3f} {units[i]}"
+
+        return f"resistance: {value} ohms"
+
+    def get_tolerance(self):
+        """
+        Calculates the tolerance value of the resistor based on the color code of its fourth band.
+
+        Returns:
+            str: A string representation of the tolerance value of the resistor as a percentage (if applicable).
+        """
+        if self.band4:
+            tolerance_values = {"brown": 1, "red": 2, "green": 0.5, "blue": 0.25, "violet": 0.1, "gray": 0.05, "gold": 5, "silver": 10}
+            return f"tolerance: {tolerance_values[self.band4]}%"
+        else:
+            return None
 
     def get_band_colors(self):
         """
@@ -59,6 +68,8 @@ class Resistor:
 
 
 if __name__ == '__main__':
-    resistor = Resistor("brown", "black", "red")
-    print(resistor.get_resistance())
+    resistor = Resistor("yellow", "violet", "brown", "gold")
     print(resistor.get_band_colors())
+    print(resistor.get_resistance())
+    print(resistor.get_tolerance())
+
