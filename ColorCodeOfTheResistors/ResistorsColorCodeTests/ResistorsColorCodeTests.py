@@ -13,13 +13,13 @@ def test_resistance():
 
 
 def test_tolerance():
-    r1 = Resistor("red", "red", "orange", "gold")
-    assert r1.get_tolerance() == "tolerance: 5%"
+    r1 = Resistor("red", "red", "orange", "red")
+    assert r1.get_tolerance() == "tolerance: 2%"
 
     r2 = Resistor("yellow", "violet", "brown")
     assert r2.get_tolerance() is None
 
-    r3 = Resistor("orange", "orange", "orange", "gold")
+    r3 = Resistor("orange", "orange", "green", "gold")
     assert r3.get_tolerance() == "tolerance: 5%"
 
 
