@@ -37,7 +37,7 @@ class Resistor:
         Calculates the resistance value of the resistor based on the color code of its bands.
 
         Returns:
-            tuple: A tuple containing the resistance value of the resistor in ohms and a string representation of the value with its unit.
+            str: A string representation of the resistor resistance value in ohms.
         """
         value = (self.color_codes[self.band1] * 10 + self.color_codes[self.band2]) * (
                     10 ** self.color_codes[self.band3])
@@ -49,7 +49,7 @@ class Resistor:
         Calculates the tolerance value of the resistor based on the color code of its fourth band.
 
         Returns:
-            str: A string representation of the tolerance value of the resistor as a percentage (if applicable).
+            str: A string representation of the resistor tolerance value as a percentage (if applicable).
         """
         if self.band4:
             tolerance_values = {"brown": 1, "red": 2, "green": 0.5, "blue": 0.25, "violet": 0.1, "gray": 0.05, "gold": 5, "silver": 10}
@@ -59,10 +59,10 @@ class Resistor:
 
     def get_band_colors(self):
         """
-        Returns a list of the color codes of all four bands of the resistor.
+        Returns a string representation of the color codes of the resistor bands.
 
         Returns:
-            list: A list of strings representing the color codes of the resistor's bands.
+            str: A string representation of the color codes of the resistor bands.
         """
         return f"band colors: {self.band1}, {self.band2}, {self.band3}, {self.band4}"
 
