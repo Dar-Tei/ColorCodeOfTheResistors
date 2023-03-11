@@ -68,7 +68,7 @@ class Resistor:
 
 
 if __name__ == '__main__':
-    resistor = Resistor("yellow", "violet", "brown", "gold")
+    resistor = Resistor()
     print(resistor.get_band_colors())
     print(resistor.get_resistance())
     print(resistor.get_tolerance())
